@@ -11,23 +11,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{968FFFE5
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.API", "src\Neon.FinanceBridge.API\Neon.FinanceBridge.API.csproj", "{49C97AD4-968E-4478-9FAF-3501C86337A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neon.FinanceBridge.Application", "src\Neon.FinanceBridge.Application\Neon.FinanceBridge.Application.csproj", "{D947F22E-740D-418F-BE2E-5A9F4F48839F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.Application", "src\Neon.FinanceBridge.Application\Neon.FinanceBridge.Application.csproj", "{D947F22E-740D-418F-BE2E-5A9F4F48839F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neon.FinanceBridge.Domain", "src\Neon.FinanceBridge.Domain\Neon.FinanceBridge.Domain.csproj", "{7A95D166-2150-45AC-8082-712D18F5768E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.Domain", "src\Neon.FinanceBridge.Domain\Neon.FinanceBridge.Domain.csproj", "{7A95D166-2150-45AC-8082-712D18F5768E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neon.FinanceBridge.Infrastructure", "src\Neon.FinanceBridge.Infrastructure\Neon.FinanceBridge.Infrastructure.csproj", "{0498F252-B47C-4CC0-9DE6-4CBD464E2945}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.Infrastructure", "src\Neon.FinanceBridge.Infrastructure\Neon.FinanceBridge.Infrastructure.csproj", "{0498F252-B47C-4CC0-9DE6-4CBD464E2945}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neon.FinanceBridge.Common", "libs\Neon.FinanceBridge.Common\Neon.FinanceBridge.Common.csproj", "{67B1666A-F397-4C82-82FB-20FF53049AD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.Common", "libs\Neon.FinanceBridge.Common\Neon.FinanceBridge.Common.csproj", "{67B1666A-F397-4C82-82FB-20FF53049AD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neon.FinanceBridge.Common.Utils", "libs\Neon.FinanceBridge.Common.Utils\Neon.FinanceBridge.Common.Utils.csproj", "{2BB7F260-4EAA-4410-ACD9-73A1E067071C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.Common.Utils", "libs\Neon.FinanceBridge.Common.Utils\Neon.FinanceBridge.Common.Utils.csproj", "{2BB7F260-4EAA-4410-ACD9-73A1E067071C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neon.FinanceBridge.Common.Domain", "libs\Neon.FinanceBridge.Common.Domain\Neon.FinanceBridge.Common.Domain.csproj", "{689B1147-F812-4D78-8BDE-ECD6C944FF07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.Common.Domain", "libs\Neon.FinanceBridge.Common.Domain\Neon.FinanceBridge.Common.Domain.csproj", "{689B1147-F812-4D78-8BDE-ECD6C944FF07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neon.FinanceBridge.Data.SQL", "libs\Neon.FinanceBridge.Data.SQL\Neon.FinanceBridge.Data.SQL.csproj", "{844795DC-8152-4966-91FD-587DA29C523F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.Data.SQL", "libs\Neon.FinanceBridge.Data.SQL\Neon.FinanceBridge.Data.SQL.csproj", "{844795DC-8152-4966-91FD-587DA29C523F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neon.FinanceBridge.Tracing", "libs\Neon.FinanceBridge.Tracing\Neon.FinanceBridge.Tracing.csproj", "{73567C2A-10E0-4D64-955F-66FDD4500291}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.Tracing", "libs\Neon.FinanceBridge.Tracing\Neon.FinanceBridge.Tracing.csproj", "{73567C2A-10E0-4D64-955F-66FDD4500291}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neon.FinanceBridge.HealthChecks", "libs\Neon.FinanceBridge.HealthChecks\Neon.FinanceBridge.HealthChecks.csproj", "{CB4AAF43-8ED9-48F2-AB79-83DB585D05AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.HealthChecks", "libs\Neon.FinanceBridge.HealthChecks\Neon.FinanceBridge.HealthChecks.csproj", "{CB4AAF43-8ED9-48F2-AB79-83DB585D05AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neon.FinanceBridge.Web.UI", "src\Neon.FinanceBridge.Web.UI\Neon.FinanceBridge.Web.UI.csproj", "{45A51F36-F89C-440E-8FF3-58504E0D7921}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{CB4AAF43-8ED9-48F2-AB79-83DB585D05AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB4AAF43-8ED9-48F2-AB79-83DB585D05AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB4AAF43-8ED9-48F2-AB79-83DB585D05AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45A51F36-F89C-440E-8FF3-58504E0D7921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45A51F36-F89C-440E-8FF3-58504E0D7921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45A51F36-F89C-440E-8FF3-58504E0D7921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45A51F36-F89C-440E-8FF3-58504E0D7921}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{844795DC-8152-4966-91FD-587DA29C523F} = {C228E50E-E56E-4AD4-835C-90B02881ACCF}
 		{73567C2A-10E0-4D64-955F-66FDD4500291} = {C228E50E-E56E-4AD4-835C-90B02881ACCF}
 		{CB4AAF43-8ED9-48F2-AB79-83DB585D05AF} = {C228E50E-E56E-4AD4-835C-90B02881ACCF}
+		{45A51F36-F89C-440E-8FF3-58504E0D7921} = {266B10A3-0014-4EE1-82DF-C1543C7477DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {055F697E-D71B-4420-80D0-DFBC7F08DCBE}
