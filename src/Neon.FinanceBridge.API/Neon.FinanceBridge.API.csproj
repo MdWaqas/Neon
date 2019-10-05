@@ -5,7 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc3" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\libs\Neon.FinanceBridge.Common\Neon.FinanceBridge.Common.csproj" />
+    <ProjectReference Include="..\Neon.FinanceBridge.Application\Neon.FinanceBridge.Application.csproj" />
   </ItemGroup>
 
 </Project>
