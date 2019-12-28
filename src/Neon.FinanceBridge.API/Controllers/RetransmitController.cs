@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Neon.FinanceBridge.Application.CommandResponses;
 using Neon.FinanceBridge.Application.Commands;
 using Neon.FinanceBridge.Common;
 
@@ -27,11 +28,11 @@ namespace Neon.FinanceBridge.API.Controllers
         }
 
         [HttpPost("CategoryAggregates")]
-        [ProducesResponseType((int)HttpStatusCode.Accepted)]
-        public async Task<IActionResult> Post([FromBody] TestCommand cmd, CancellationToken cancellationToken)
+        [ProducesResponseType(typeof(TestCommandResponse),(int)HttpStatusCode.Accepted)]
+        public async Task<TestCommandResponse> Post([FromBody] TestCommand cmd, CancellationToken cancellationToken)
         {
-            await _mediator.Send(cmd, cancellationToken);
-            return Accepted();
+            var result= await _mediator.Send(cmd, cancellationToken);
+            return result;
         }
     }
 }

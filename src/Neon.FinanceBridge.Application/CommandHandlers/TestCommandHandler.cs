@@ -14,9 +14,11 @@ namespace Neon.FinanceBridge.Application.CommandHandlers
         {
         }
 
-        public override Task<TestCommandResponse> HandleCommand(TestCommand command, CancellationToken cancellationToken)
+        public override async Task<TestCommandResponse> HandleCommand(TestCommand command, CancellationToken cancellationToken)
         {
-            return null;
+            var obj = new TestCommandResponse {Name = "Hello World"};
+            await Task.Delay(1, cancellationToken);
+            return obj;
         }
     }
 }

@@ -1,14 +1,20 @@
+using System.Diagnostics;
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Neon.FinanceBridge.Application.CommandHandlers;
+using MediatR;
+using Neon.FinanceBridge.Tracing;
 
 namespace Neon.FinanceBridge.API
 {
     public class Startup
     {
+        private static readonly string DiagnosticSourceName = Assembly.GetEntryAssembly().GetName().Name;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -39,8 +45,10 @@ namespace Neon.FinanceBridge.API
                     }
                 });
             });
+            services.AddCustomTracing(Configuration, DiagnosticSourceName);
+            services.AddMediatR(typeof(TestCommandHandler).Assembly);
         }
-
+        
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -68,6 +76,18 @@ namespace Neon.FinanceBridge.API
             {
                 endpoints.MapControllers();
             });
+
+            
+        }
+    }
+
+    static class CustomExtensionsMethods
+    {
+        public static IServiceCollection AddCustomTracing(this IServiceCollection services, IConfiguration configuration, string diagnosticSourceName)
+        {
+            services.AddSingleton(provider => new DiagnosticListener(diagnosticSourceName));
+            services.AddSingleton(typeof(IDiagnosticSpanBuilder<>), typeof(DiagnosticSpanBuilder<>));
+            return services;
         }
     }
 }

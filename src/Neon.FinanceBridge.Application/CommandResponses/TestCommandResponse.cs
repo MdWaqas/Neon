@@ -2,5 +2,6 @@
 {
     public class TestCommandResponse
     {
+        public string Name { get; set; }
     }
 }
