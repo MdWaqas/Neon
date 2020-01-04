@@ -1,14 +1,23 @@
-using System.Diagnostics;
-using System.Reflection;
+using FluentValidation;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Neon.FinanceBridge.Application.CommandHandlers;
-using MediatR;
+using Neon.FinanceBridge.Application.Commands;
+using Neon.FinanceBridge.Application.Validations;
+using Neon.FinanceBridge.Data.SQL.Repositories;
+using Neon.FinanceBridge.Data.SQL.Repositories.Impl;
+using Neon.FinanceBridge.Domain.Repositories;
+using Neon.FinanceBridge.Infrastructure;
+using Neon.FinanceBridge.Infrastructure.Repositories;
 using Neon.FinanceBridge.Tracing;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace Neon.FinanceBridge.API
 {
@@ -45,8 +54,11 @@ namespace Neon.FinanceBridge.API
                     }
                 });
             });
-            services.AddCustomTracing(Configuration, DiagnosticSourceName);
-            services.AddMediatR(typeof(TestCommandHandler).Assembly);
+            services.AddCustomTracing(Configuration, DiagnosticSourceName).AddValidators();
+            services.AddMediatR(typeof(InsertUserCommandHandler).Assembly);
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            services.AddScoped<ICrudRepository, CrudRepository<ApplicationDbContext>>();
+            services.AddScoped<IUserRepository, UserRepository>();
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -87,6 +99,12 @@ namespace Neon.FinanceBridge.API
         {
             services.AddSingleton(provider => new DiagnosticListener(diagnosticSourceName));
             services.AddSingleton(typeof(IDiagnosticSpanBuilder<>), typeof(DiagnosticSpanBuilder<>));
+            return services;
+        }
+
+        public static IServiceCollection AddValidators(this IServiceCollection services)
+        {
+            services.AddSingleton<IValidator<InsertUserCommand>, InsertUserCommandValidator>();
             return services;
         }
     }

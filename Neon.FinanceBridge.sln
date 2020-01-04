@@ -29,7 +29,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.Tracing"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.HealthChecks", "libs\Neon.FinanceBridge.HealthChecks\Neon.FinanceBridge.HealthChecks.csproj", "{CB4AAF43-8ED9-48F2-AB79-83DB585D05AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neon.FinanceBridge.Web.UI", "src\Neon.FinanceBridge.Web.UI\Neon.FinanceBridge.Web.UI.csproj", "{45A51F36-F89C-440E-8FF3-58504E0D7921}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.Web.UI", "src\Neon.FinanceBridge.Web.UI\Neon.FinanceBridge.Web.UI.csproj", "{45A51F36-F89C-440E-8FF3-58504E0D7921}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{220D4DF7-30D8-4244-B6E7-7900259F45E3}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Neon.Database", "data\Neon.Database\Neon.Database.sqlproj", "{3FB6D134-0141-4942-8B1F-66B5F7C4A2C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +85,12 @@ Global
 		{45A51F36-F89C-440E-8FF3-58504E0D7921}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45A51F36-F89C-440E-8FF3-58504E0D7921}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45A51F36-F89C-440E-8FF3-58504E0D7921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FB6D134-0141-4942-8B1F-66B5F7C4A2C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FB6D134-0141-4942-8B1F-66B5F7C4A2C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FB6D134-0141-4942-8B1F-66B5F7C4A2C1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3FB6D134-0141-4942-8B1F-66B5F7C4A2C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FB6D134-0141-4942-8B1F-66B5F7C4A2C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FB6D134-0141-4942-8B1F-66B5F7C4A2C1}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +107,7 @@ Global
 		{73567C2A-10E0-4D64-955F-66FDD4500291} = {C228E50E-E56E-4AD4-835C-90B02881ACCF}
 		{CB4AAF43-8ED9-48F2-AB79-83DB585D05AF} = {C228E50E-E56E-4AD4-835C-90B02881ACCF}
 		{45A51F36-F89C-440E-8FF3-58504E0D7921} = {266B10A3-0014-4EE1-82DF-C1543C7477DB}
+		{3FB6D134-0141-4942-8B1F-66B5F7C4A2C1} = {220D4DF7-30D8-4244-B6E7-7900259F45E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {055F697E-D71B-4420-80D0-DFBC7F08DCBE}

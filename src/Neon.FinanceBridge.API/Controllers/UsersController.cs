@@ -3,13 +3,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Neon.FinanceBridge.Application.CommandResponses;
+using Microsoft.Extensions.Logging;
+using Neon.FinanceBridge.Application.CommandHandlers;
 using Neon.FinanceBridge.Application.Commands;
 using Neon.FinanceBridge.Common;
 
 namespace Neon.FinanceBridge.API.Controllers
 {
     [ApiController]
+    [Route("api/[controller]")]
     [Consumes("application/json")]
     [Produces("application/json")]
     [ProducesResponseType(typeof(TraceableValidationProblemDetails), (int)HttpStatusCode.BadRequest)]
@@ -18,21 +20,23 @@ namespace Neon.FinanceBridge.API.Controllers
     [ProducesResponseType(typeof(ApiProblemDetails), (int)HttpStatusCode.Forbidden)]
     [ProducesResponseType(typeof(ApiProblemDetails), (int)HttpStatusCode.Unauthorized)]
     [ProducesErrorResponseType(typeof(ApiProblemDetails))]
-    public class RetransmitController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
+        private readonly ILogger<InsertUserCommandHandler> _logger;
 
-        public RetransmitController(IMediator mediator)
+        public UsersController(IMediator mediator, ILogger<InsertUserCommandHandler> logger)
         {
             _mediator = mediator;
+            _logger = logger;
         }
 
-        [HttpPost("CategoryAggregates")]
-        [ProducesResponseType(typeof(TestCommandResponse),(int)HttpStatusCode.Accepted)]
-        public async Task<TestCommandResponse> Post([FromBody] TestCommand cmd, CancellationToken cancellationToken)
+        [HttpPost("Create")]
+        [ProducesResponseType((int)HttpStatusCode.Accepted)]
+        public async Task<IActionResult> Post([FromBody] InsertUserCommand cmd, CancellationToken cancellationToken)
         {
-            var result= await _mediator.Send(cmd, cancellationToken);
-            return result;
+            await _mediator.Send(cmd, cancellationToken);
+            return Accepted();
         }
     }
 }
