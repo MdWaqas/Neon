@@ -24,7 +24,7 @@ namespace Neon.FinanceBridge.Application.CommandHandlers
 
         public override async Task<InsertUserCommandResponse> HandleCommand(InsertUserCommand command, CancellationToken cancellationToken)
         {
-            var user = new User{Name = command.Name };
+            var user = new User { Name = command.Name };
             await repository.Create(user);
             return null;
         }
