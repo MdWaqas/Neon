@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Neon.FinanceBridge.Data.SQL.Repositories;
 using Neon.FinanceBridge.Domain.Models;
 using Neon.FinanceBridge.Domain.Repositories;
