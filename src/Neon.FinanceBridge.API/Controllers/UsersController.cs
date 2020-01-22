@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Neon.FinanceBridge.Application.CommandHandlers;
@@ -37,6 +38,16 @@ namespace Neon.FinanceBridge.API.Controllers
         {
             await _mediator.Send(cmd, cancellationToken);
             return Accepted();
+        }
+
+        [AllowAnonymous]
+        [HttpPost("authenticate")]
+        public async Task<IActionResult> Authenticate([FromBody] AuthenticateUserCommand cmd, CancellationToken cancellationToken)
+        {
+            var user = await _mediator.Send(cmd, cancellationToken);
+            if (user == null)
+                return BadRequest(new { message = "Username or password is incorrect" });
+            return Ok(user);
         }
     }
 }

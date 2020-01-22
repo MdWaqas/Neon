@@ -9,7 +9,7 @@ using Neon.FinanceBridge.Tracing;
 
 namespace Neon.FinanceBridge.Application.CommandHandlers
 {
-    public class InsertUserCommandHandler : BaseCommandHandler<InsertUserCommandHandler,InsertUserCommand, InsertUserCommandResponse>
+    public class InsertUserCommandHandler : BaseCommandHandler<InsertUserCommandHandler, InsertUserCommand, InsertUserCommandResponse>
     {
         private readonly IUserRepository repository;
 
@@ -24,7 +24,7 @@ namespace Neon.FinanceBridge.Application.CommandHandlers
 
         public override async Task<InsertUserCommandResponse> HandleCommand(InsertUserCommand command, CancellationToken cancellationToken)
         {
-            var user = new User { Name = command.Name };
+            var user = new User { FirstName = command.Name };
             await repository.Create(user);
             return null;
         }

@@ -18,6 +18,9 @@ using Neon.FinanceBridge.Infrastructure.Repositories;
 using Neon.FinanceBridge.Tracing;
 using System.Diagnostics;
 using System.Reflection;
+using Neon.FinanceBridge.Domain.Services;
+using Neon.FinanceBridge.Infrastructure.Configurations;
+using Neon.FinanceBridge.Infrastructure.Services;
 
 namespace Neon.FinanceBridge.API
 {
@@ -55,10 +58,18 @@ namespace Neon.FinanceBridge.API
                 });
             });
             services.AddCustomTracing(Configuration, DiagnosticSourceName).AddValidators();
+
+            services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));
+
             services.AddMediatR(typeof(InsertUserCommandHandler).Assembly);
+            services.AddMediatR(typeof(AuthenticateUserCommandHandler).Assembly);
+            
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+            
             services.AddScoped<ICrudRepository, CrudRepository<ApplicationDbContext>>();
             services.AddScoped<IUserRepository, UserRepository>();
+            
+            services.AddScoped<IUserService, UserService>();
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
