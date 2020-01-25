@@ -9,7 +9,7 @@ namespace Neon.FinanceBridge.Application.Validations
         public InsertUserCommandValidator()
         {
             RuleFor(cmd => cmd.Name).NotEmpty();
-            RuleForEach(cmd => cmd.Name).NotEmpty().WithMessage("User's name must not be empty.");
+            RuleFor(cmd => cmd.Name).MaximumLength(50);
         }
     }
 }

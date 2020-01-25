@@ -62,6 +62,24 @@
     <Folder Include="dbo\Tables\" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\Users.sql" />
+    <Build Include="dbo\Tables\StorageConditions.sql" />
+    <Build Include="dbo\Tables\SaleOrders.sql" />
+    <Build Include="dbo\Tables\SaleOrderDetails.sql" />
+    <Build Include="dbo\Tables\Racks.sql" />
+    <Build Include="dbo\Tables\ProductForms.sql" />
+    <Build Include="dbo\Tables\PregnancyCategories.sql" />
+    <Build Include="dbo\Tables\Precautions.sql" />
+    <Build Include="dbo\Tables\PRCOTCs.sql" />
+    <Build Include="dbo\Tables\Packs.sql" />
+    <Build Include="dbo\Tables\Manufacturers.sql" />
+    <Build Include="dbo\Tables\Items.sql" />
+    <Build Include="dbo\Tables\Interactions.sql" />
+    <Build Include="dbo\Tables\GenericCategories.sql" />
+    <Build Include="dbo\Tables\Doses.sql" />
+    <Build Include="dbo\Tables\Customers.sql" />
+    <Build Include="dbo\Tables\CustomerPayments.sql" />
+    <Build Include="dbo\Tables\Contradictions.sql" />
+    <Build Include="dbo\Tables\Categories.sql" />
+    <Build Include="dbo\Tables\AspNetUsers.sql" />
   </ItemGroup>
 </Project>
