@@ -25,7 +25,7 @@ namespace Neon.FinanceBridge.Data.SQL.Repositories.Impl
             int? take = null)
             where TEntity : class, IBaseEntity
         {
-            includeProperties ??= string.Empty;
+            includeProperties = includeProperties==null? string.Empty: includeProperties;
             IQueryable<TEntity> query = context.Set<TEntity>();
 
             if (filter != null)
