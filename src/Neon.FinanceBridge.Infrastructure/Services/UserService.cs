@@ -6,10 +6,10 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Neon.FinanceBridge.Domain.Helpers;
 using Neon.FinanceBridge.Domain.Models;
 using Neon.FinanceBridge.Domain.Services;
 using Neon.FinanceBridge.Infrastructure.Configurations;
-using Neon.FinanceBridge.Infrastructure.Helpers;
 
 namespace Neon.FinanceBridge.Infrastructure.Services
 {

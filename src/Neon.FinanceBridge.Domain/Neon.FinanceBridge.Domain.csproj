@@ -12,8 +12,4 @@
     <ProjectReference Include="..\..\libs\Neon.FinanceBridge.Data.SQL\Neon.FinanceBridge.Data.SQL.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
-
 </Project>

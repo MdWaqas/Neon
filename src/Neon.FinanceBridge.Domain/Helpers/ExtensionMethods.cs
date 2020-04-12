@@ -2,7 +2,7 @@
 using System.Linq;
 using Neon.FinanceBridge.Domain.Models;
 
-namespace Neon.FinanceBridge.Infrastructure.Helpers
+namespace Neon.FinanceBridge.Domain.Helpers
 {
     public static class ExtensionMethods
     {

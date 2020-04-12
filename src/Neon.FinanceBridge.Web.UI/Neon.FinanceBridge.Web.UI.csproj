@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="neon-pos\src\helpers\" />
+    <Folder Include="neon-pos\src\services\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>
