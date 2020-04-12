@@ -9,7 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Neon.FinanceBridge.Application.CommandHandlers;
 using Neon.FinanceBridge.Application.Commands;
-using Neon.FinanceBridge.Application.Validations;
+
 using Neon.FinanceBridge.Data.SQL.Repositories;
 using Neon.FinanceBridge.Data.SQL.Repositories.Impl;
 using Neon.FinanceBridge.Domain.Repositories;
@@ -61,7 +61,7 @@ namespace Neon.FinanceBridge.API
 
             services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));
 
-            services.AddMediatR(typeof(InsertUserCommandHandler).Assembly);
+            //services.AddMediatR(typeof(InsertUserCommandHandler).Assembly);
             services.AddMediatR(typeof(AuthenticateUserCommandHandler).Assembly);
             
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
@@ -115,7 +115,7 @@ namespace Neon.FinanceBridge.API
 
         public static IServiceCollection AddValidators(this IServiceCollection services)
         {
-            services.AddSingleton<IValidator<InsertUserCommand>, InsertUserCommandValidator>();
+            //services.AddSingleton<IValidator<InsertUserCommand>, InsertUserCommandValidator>();
             return services;
         }
     }

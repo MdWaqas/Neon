@@ -24,20 +24,10 @@ namespace Neon.FinanceBridge.API.Controllers
     public class UsersController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private readonly ILogger<InsertUserCommandHandler> _logger;
 
-        public UsersController(IMediator mediator, ILogger<InsertUserCommandHandler> logger)
+        public UsersController(IMediator mediator)
         {
             _mediator = mediator;
-            _logger = logger;
-        }
-
-        [HttpPost("Create")]
-        [ProducesResponseType((int)HttpStatusCode.Accepted)]
-        public async Task<IActionResult> Post([FromBody] InsertUserCommand cmd, CancellationToken cancellationToken)
-        {
-            await _mediator.Send(cmd, cancellationToken);
-            return Accepted();
         }
 
         [AllowAnonymous]
