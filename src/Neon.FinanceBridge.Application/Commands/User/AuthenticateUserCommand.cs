@@ -1,10 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using MediatR;
-using Neon.FinanceBridge.Domain.Models;
 
-namespace Neon.FinanceBridge.Application.Commands
+namespace Neon.FinanceBridge.Application.Commands.User
 {
-    public class AuthenticateUserCommand : IRequest<User>
+    public class AuthenticateUserCommand : IRequest<Domain.Models.User>
     {
         [Required]
         public string Username { get; set; }

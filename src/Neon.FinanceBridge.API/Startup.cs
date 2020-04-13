@@ -18,6 +18,7 @@ using Neon.FinanceBridge.Infrastructure.Repositories;
 using Neon.FinanceBridge.Tracing;
 using System.Diagnostics;
 using System.Reflection;
+using AutoMapper;
 using Neon.FinanceBridge.Domain.Services;
 using Neon.FinanceBridge.Infrastructure.Configurations;
 using Neon.FinanceBridge.Infrastructure.Services;
@@ -38,6 +39,7 @@ namespace Neon.FinanceBridge.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddAutoMapper(typeof(Startup));
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {

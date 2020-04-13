@@ -1,58 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Neon.FinanceBridge.Application.Commands.Customer;
 using Neon.FinanceBridge.Domain.Models;
-using Neon.FinanceBridge.Domain.Services;
 
 namespace Neon.FinanceBridge.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerController : ControllerBase
+    public class CustomerController : ApiController
     {
-        private readonly ICustomerService customerService;
-        private readonly IMediator mediator;
-        public CustomerController(ICustomerService customerService)
+
+        public CustomerController(IMediator mediator) : base(mediator)
         {
-            this.customerService = customerService;
         }
 
-        // GET: api/Customer
         [HttpGet]
         public IEnumerable<Customer> Get()
         {
-            return customerService.GetAll();
+            return null;
         }
 
-        // GET: api/Customer/5
         [HttpGet("{id}", Name = "Get")]
         public Customer Get(int id)
         {
-            return customerService.GetById(id);
+            return null;
         }
 
-        // POST: api/Customer
         [HttpPost]
-        public void Post([FromBody] AddCustomerCommand cmd, CancellationToken cancellationToken)
+        public async Task<IActionResult> Post([FromBody] AddCustomerCommand cmd, CancellationToken cancellationToken)
         {
+            await Mediator.Send(cmd, cancellationToken);
+            return Ok();
         }
 
-        // PUT: api/Customer/5
         [HttpPut("{id}")]
-        public void Put([FromBody] UpdateCustomerCommand cmd, CancellationToken cancellationToken)
+        public async Task<IActionResult> Put([FromRoute]int id, [FromBody] UpdateCustomerCommand cmd, CancellationToken cancellationToken)
         {
+            cmd.Id = id;
+            await Mediator.Send(cmd, cancellationToken);
+            return Ok();
         }
 
-        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete([FromBody] DeleteCustomerCommand cmd, CancellationToken cancellationToken)
+        public async Task<IActionResult> Delete([FromRoute]int id, CancellationToken cancellationToken)
         {
+            await Mediator.Send(new DeleteCustomerCommand(id), cancellationToken);
+            return Ok();
         }
     }
 }
