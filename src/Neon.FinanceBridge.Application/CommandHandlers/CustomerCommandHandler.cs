@@ -23,6 +23,7 @@ namespace Neon.FinanceBridge.Application.CommandHandlers
         {
             var customer = mapper.Map<Customer>(request);
             repository.Create(customer);
+            repository.Save();
             return Task.FromResult(Unit.Value);
         }
 
@@ -30,12 +31,14 @@ namespace Neon.FinanceBridge.Application.CommandHandlers
         {
             var customer = mapper.Map<Customer>(request);
             repository.Update(customer);
+            repository.Save();
             return Task.FromResult(Unit.Value);
         }
 
         public Task<Unit> Handle(DeleteCustomerCommand request, CancellationToken cancellationToken)
         {
             repository.Delete<Customer>(request.Id);
+            repository.Save();
             return Task.FromResult(Unit.Value);
         }
     }

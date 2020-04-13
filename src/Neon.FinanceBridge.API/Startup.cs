@@ -1,4 +1,3 @@
-using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,17 +7,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Neon.FinanceBridge.Application.CommandHandlers;
-using Neon.FinanceBridge.Application.Commands;
-
 using Neon.FinanceBridge.Data.SQL.Repositories;
 using Neon.FinanceBridge.Data.SQL.Repositories.Impl;
-using Neon.FinanceBridge.Domain.Repositories;
 using Neon.FinanceBridge.Infrastructure;
-using Neon.FinanceBridge.Infrastructure.Repositories;
 using Neon.FinanceBridge.Tracing;
 using System.Diagnostics;
 using System.Reflection;
 using AutoMapper;
+using FluentValidation;
+using Neon.FinanceBridge.Application.AutoMapper;
+using Neon.FinanceBridge.Application.Commands.Customer;
+using Neon.FinanceBridge.Application.Validations.Customer;
 using Neon.FinanceBridge.Domain.Services;
 using Neon.FinanceBridge.Infrastructure.Configurations;
 using Neon.FinanceBridge.Infrastructure.Services;
@@ -39,7 +38,7 @@ namespace Neon.FinanceBridge.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(CommandToModelMappingProfile));
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
@@ -63,14 +62,14 @@ namespace Neon.FinanceBridge.API
 
             services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));
 
-            //services.AddMediatR(typeof(InsertUserCommandHandler).Assembly);
+            services.AddMediatR(typeof(AddCustomerCommand).Assembly);
+            services.AddMediatR(typeof(UpdateCustomerCommand).Assembly);
+            services.AddMediatR(typeof(DeleteCustomerCommand).Assembly);
             services.AddMediatR(typeof(AuthenticateUserCommandHandler).Assembly);
             
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
             
             services.AddScoped<ICrudRepository, CrudRepository<ApplicationDbContext>>();
-            services.AddScoped<IUserRepository, UserRepository>();
-            
             services.AddScoped<IUserService, UserService>();
         }
         
@@ -117,7 +116,9 @@ namespace Neon.FinanceBridge.API
 
         public static IServiceCollection AddValidators(this IServiceCollection services)
         {
-            //services.AddSingleton<IValidator<InsertUserCommand>, InsertUserCommandValidator>();
+            services.AddSingleton<IValidator<AddCustomerCommand>, AddCustomerValidations>();
+            services.AddSingleton<IValidator<UpdateCustomerCommand>, UpdateCustomerValidations>();
+            services.AddSingleton<IValidator<DeleteCustomerCommand>, DeleteCustomerValidations>();
             return services;
         }
     }

@@ -8,13 +8,6 @@ namespace Neon.FinanceBridge.Application.Commands.Customer
     {
         [JsonIgnore]
         public int Id { get;  set; }
-        public UpdateCustomerCommand(int id, string firstName, string lastName, string email, string nic)
-        {
-            Id = id;
-            FirstName = firstName;
-            LastName = lastName;
-            Email = email;
-            NIC = nic;
-        }
+        
     }
 }

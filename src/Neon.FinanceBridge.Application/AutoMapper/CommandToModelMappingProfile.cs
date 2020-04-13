@@ -8,8 +8,8 @@ namespace Neon.FinanceBridge.Application.AutoMapper
     {
         public CommandToModelMappingProfile()
         {
-            CreateMap<Customer, AddCustomerCommand>();
-            CreateMap<Customer, UpdateCustomerCommand>();
+            CreateMap<Customer, AddCustomerCommand>().ReverseMap();
+            CreateMap<Customer, UpdateCustomerCommand>().ReverseMap();
         }
     }
 }
