@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\libs\Neon.FinanceBridge.Common.Domain\Neon.FinanceBridge.Common.Domain.csproj" />
     <ProjectReference Include="..\..\libs\Neon.FinanceBridge.Common.Utils\Neon.FinanceBridge.Common.Utils.csproj" />
     <ProjectReference Include="..\..\libs\Neon.FinanceBridge.Tracing\Neon.FinanceBridge.Tracing.csproj" />
     <ProjectReference Include="..\Neon.FinanceBridge.Domain\Neon.FinanceBridge.Domain.csproj" />
