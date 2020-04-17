@@ -1,6 +1,6 @@
 ﻿using Neon.FinanceBridge.Common.Domain.Events;
 
-namespace Neon.FinanceBridge.Application.Events
+namespace Neon.FinanceBridge.Domain.Events
 {
     public class CustomerUpdatedEvent : Event
     {

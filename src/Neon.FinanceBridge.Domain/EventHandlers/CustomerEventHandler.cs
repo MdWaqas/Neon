@@ -1,9 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Neon.FinanceBridge.Application.Events;
+using Neon.FinanceBridge.Domain.Events;
 
-namespace Neon.FinanceBridge.Application.EventHandlers
+namespace Neon.FinanceBridge.Domain.EventHandlers
 {
     public class CustomerEventHandler :
         INotificationHandler<CustomerAddedEvent>,

@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\libs\Neon.FinanceBridge.Common.Domain\Neon.FinanceBridge.Common.Domain.csproj" />
     <ProjectReference Include="..\..\libs\Neon.FinanceBridge.Data.SQL\Neon.FinanceBridge.Data.SQL.csproj" />
   </ItemGroup>
 

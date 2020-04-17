@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Neon.FinanceBridge.Common.Domain.Events;
+﻿using Neon.FinanceBridge.Common.Domain.Events;
 
-namespace Neon.FinanceBridge.Application.Events
+namespace Neon.FinanceBridge.Domain.Events
 {
     public class CustomerAddedEvent : Event
     {
