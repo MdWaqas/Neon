@@ -42,24 +42,7 @@ namespace Neon.FinanceBridge.API
             services.AddControllers();
             services.AddAutoMapper(typeof(CommandToModelMappingProfile));
             // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "Neon API",
-                    Description = "Finanace Bridge",
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Waqas Idrees",
-                        Email = string.Empty
-                    },
-                    License = new OpenApiLicense
-                    {
-                        Name = "Use under LICX"
-                    }
-                });
-            });
+            services.AddSwaggerSetup();
             services.AddCustomTracing(Configuration, DiagnosticSourceName).AddValidators();
 
             services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));
@@ -90,10 +73,7 @@ namespace Neon.FinanceBridge.API
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            });
+            app.UseSwaggerSetup();
 
             app.UseHttpsRedirection();
 
