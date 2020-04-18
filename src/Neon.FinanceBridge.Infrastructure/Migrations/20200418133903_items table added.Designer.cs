@@ -9,7 +9,7 @@ using Neon.FinanceBridge.Infrastructure;
 
 namespace Neon.FinanceBridge.Infrastructure.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(FinanceBridgeDbContext))]
     [Migration("20200418133903_items table added")]
     partial class itemstableadded
     {

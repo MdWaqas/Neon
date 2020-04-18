@@ -15,11 +15,13 @@ using System.Diagnostics;
 using System.Reflection;
 using AutoMapper;
 using FluentValidation;
+using Neon.FinanceBridge.API.Configurations;
 using Neon.FinanceBridge.Application.AutoMapper;
 using Neon.FinanceBridge.Application.Commands.Customer;
 using Neon.FinanceBridge.Application.Validations.Customer;
 using Neon.FinanceBridge.Domain.Services;
 using Neon.FinanceBridge.Infrastructure.Configurations;
+using Neon.FinanceBridge.Infrastructure.Identity;
 using Neon.FinanceBridge.Infrastructure.Services;
 using Neon.FinanceBridge.Application.Commands.Item;
 using Neon.FinanceBridge.Application.Validations.Item;
@@ -48,24 +50,7 @@ namespace Neon.FinanceBridge.API
             services.AddControllers();
             services.AddAutoMapper(typeof(CommandToModelMappingProfile));
             // Register the Swagger generator, defining 1 or more Swagger documents
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Version = "v1",
-                    Title = "Neon API",
-                    Description = "Finanace Bridge",
-                    Contact = new OpenApiContact
-                    {
-                        Name = "Waqas Idrees",
-                        Email = string.Empty
-                    },
-                    License = new OpenApiLicense
-                    {
-                        Name = "Use under LICX"
-                    }
-                });
-            });
+            services.AddSwaggerSetup();
             services.AddCustomTracing(Configuration, DiagnosticSourceName).AddValidators();
 
             services.Configure<AppSettings>(Configuration.GetSection(nameof(AppSettings)));
@@ -74,9 +59,13 @@ namespace Neon.FinanceBridge.API
             services.AddMediatR(typeof(DeleteCustomerCommand).Assembly);
             services.AddMediatR(typeof(AuthenticateUserCommandHandler).Assembly);
             
+            services.AddDbContext<FinanceBridgeDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddTransient<IDbConnection>((sp) => new SqlConnection(Configuration["ConnectionStrings:DefaultConnection"]));
-            services.AddScoped<ICrudRepository, CrudRepository<ApplicationDbContext>>();
+
+            services.AddIdentitySetup(Configuration);
+
+            services.AddScoped<ICrudRepository, CrudRepository<FinanceBridgeDbContext>>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IItemQueries, ItemQueries>();
             services.AddScoped<IBaseQuery, BaseQuery>();
@@ -95,10 +84,7 @@ namespace Neon.FinanceBridge.API
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            });
+            app.UseSwaggerSetup();
 
             app.UseHttpsRedirection();
 
