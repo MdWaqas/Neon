@@ -3,9 +3,9 @@ using Neon.FinanceBridge.Domain.Models;
 
 namespace Neon.FinanceBridge.Infrastructure
 {
-    public class ApplicationDbContext : DbContext
+    public class FinanceBridgeDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public FinanceBridgeDbContext(DbContextOptions<FinanceBridgeDbContext> options) : base(options)
         {
 
         }

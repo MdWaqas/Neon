@@ -2,9 +2,11 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Neon.FinanceBridge.Application.Commands.Customer;
 using Neon.FinanceBridge.Domain.Models;
+using Neon.FinanceBridge.Infrastructure.Configurations;
 
 namespace Neon.FinanceBridge.API.Controllers
 {
@@ -12,9 +14,10 @@ namespace Neon.FinanceBridge.API.Controllers
     [ApiController]
     public class CustomerController : ApiController
     {
-
+        
         public CustomerController(IMediator mediator) : base(mediator)
         {
+
         }
 
         [HttpGet]
