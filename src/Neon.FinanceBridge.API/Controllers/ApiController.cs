@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Neon.FinanceBridge.Common;
 
@@ -18,6 +19,7 @@ namespace Neon.FinanceBridge.API.Controllers
     [ProducesResponseType(typeof(ApiProblemDetails), (int)HttpStatusCode.Forbidden)]
     [ProducesResponseType(typeof(ApiProblemDetails), (int)HttpStatusCode.Unauthorized)]
     [ProducesErrorResponseType(typeof(ApiProblemDetails))]
+    [Authorize]
     public class ApiController : ControllerBase
     {
         protected readonly IMediator Mediator;

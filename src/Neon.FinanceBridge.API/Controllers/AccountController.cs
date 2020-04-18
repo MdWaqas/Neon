@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -29,9 +30,10 @@ namespace Neon.FinanceBridge.API.Controllers
 
         [HttpPost]
         [Route("register")]
+        [AllowAnonymous]
         public async Task<IActionResult> Register(UserRegistration userRegistration)
         {
-            
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(userRegistration);
@@ -57,13 +59,17 @@ namespace Neon.FinanceBridge.API.Controllers
             await signInManager.SignInAsync(user, false);
             var token = await GenerateJwt(userRegistration.Email);
 
-            return Ok(token);
+            return Ok(new
+            {
+                access_token = token
+            });
         }
 
 
         [HttpPost]
-        [Route("login")]
-        public async Task<IActionResult> Login(UserLogin userLogin)
+        [Route("authenticate")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Authenticate(UserLogin userLogin)
         {
             if (!ModelState.IsValid)
             {
@@ -75,7 +81,10 @@ namespace Neon.FinanceBridge.API.Controllers
             if (result.Succeeded)
             {
                 var token = await GenerateJwt(userLogin.Email);
-                return Ok(token);
+                return Ok(new
+                {
+                    access_token = token
+                });
             }
             else
             {

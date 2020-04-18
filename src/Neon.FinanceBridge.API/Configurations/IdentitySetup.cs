@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Neon.FinanceBridge.Infrastructure;
 using Neon.FinanceBridge.Infrastructure.Configurations;
+using Neon.FinanceBridge.Infrastructure.Identity;
 using Neon.FinanceBridge.Infrastructure.Identity.Authorization;
 
 namespace Neon.FinanceBridge.API.Configurations
@@ -20,7 +21,7 @@ namespace Neon.FinanceBridge.API.Configurations
 
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<FinanceBridgeDbContext>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
             // JWT Setup
