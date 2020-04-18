@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Neon.FinanceBridge.Application.Validations.Item
 {
-    class AddItemValidations:ItemValidations<AddItemCommand>
+  public  class AddItemValidations:ItemValidations<AddItemCommand>
     {
         public AddItemValidations()
         {

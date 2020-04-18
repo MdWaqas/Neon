@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Neon.FinanceBridge.Application.Commands.Item;
-
+using Neon.FinanceBridge.Application.Queries.Item;
 using Neon.FinanceBridge.Domain.Models;
 
 namespace Neon.FinanceBridge.API.Controllers
@@ -13,20 +13,23 @@ namespace Neon.FinanceBridge.API.Controllers
     [ApiController]
     public class ItemsController : ApiController
     {
-        public ItemsController(IMediator mediator) : base(mediator)
+        private readonly IItemQueries itemQueries;
+        public ItemsController(IMediator mediator, IItemQueries itemQueries) : base(mediator)
         {
+            this.itemQueries = itemQueries;
         }
 
         [HttpGet]
-        public IEnumerable<Item> Get()
+        public IEnumerable<ItemDTO> Get()
         {
-            return null;
+            return itemQueries.GetAllI();
         }
 
-        [HttpGet("{id}", Name = "Get")]
-        public Item Get(int id)
+        [HttpGet("{id}")]
+        public ItemDTO Get(int id)
         {
-            return null;
+            return itemQueries.GetById(id);
+
         }
 
         [HttpPost]

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Neon.FinanceBridge.Application.Validations.Item
 {
-    class DeleteItemValidations:AbstractValidator<DeleteItemCommand>
+   public class DeleteItemValidations:AbstractValidator<DeleteItemCommand>
     {
         public DeleteItemValidations()
         {
