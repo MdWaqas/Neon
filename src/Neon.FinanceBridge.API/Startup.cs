@@ -15,11 +15,13 @@ using System.Diagnostics;
 using System.Reflection;
 using AutoMapper;
 using FluentValidation;
+using Neon.FinanceBridge.API.Configurations;
 using Neon.FinanceBridge.Application.AutoMapper;
 using Neon.FinanceBridge.Application.Commands.Customer;
 using Neon.FinanceBridge.Application.Validations.Customer;
 using Neon.FinanceBridge.Domain.Services;
 using Neon.FinanceBridge.Infrastructure.Configurations;
+using Neon.FinanceBridge.Infrastructure.Identity;
 using Neon.FinanceBridge.Infrastructure.Services;
 
 namespace Neon.FinanceBridge.API
@@ -67,9 +69,12 @@ namespace Neon.FinanceBridge.API
             services.AddMediatR(typeof(DeleteCustomerCommand).Assembly);
             services.AddMediatR(typeof(AuthenticateUserCommandHandler).Assembly);
             
+            services.AddDbContext<FinanceBridgeDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
             
-            services.AddScoped<ICrudRepository, CrudRepository<ApplicationDbContext>>();
+            services.AddIdentitySetup(Configuration);
+
+            services.AddScoped<ICrudRepository, CrudRepository<FinanceBridgeDbContext>>();
             services.AddScoped<IUserService, UserService>();
         }
         

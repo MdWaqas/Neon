@@ -9,7 +9,7 @@ using Neon.FinanceBridge.Infrastructure;
 
 namespace Neon.FinanceBridge.Infrastructure.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(FinanceBridgeDbContext))]
     [Migration("20200413181907_InitialCreate")]
     partial class InitialCreate
     {

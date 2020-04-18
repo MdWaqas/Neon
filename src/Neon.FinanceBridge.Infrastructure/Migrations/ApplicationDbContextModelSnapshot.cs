@@ -8,7 +8,7 @@ using Neon.FinanceBridge.Infrastructure;
 
 namespace Neon.FinanceBridge.Infrastructure.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(FinanceBridgeDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
