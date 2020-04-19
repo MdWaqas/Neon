@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="FluentValidation" Version="8.6.2" />
+    <PackageReference Include="MediatR" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\libs\Neon.FinanceBridge.Common.Domain\Neon.FinanceBridge.Common.Domain.csproj" />
+    <ProjectReference Include="..\..\libs\Neon.FinanceBridge.Common.Utils\Neon.FinanceBridge.Common.Utils.csproj" />
+    <ProjectReference Include="..\..\libs\Neon.FinanceBridge.Tracing\Neon.FinanceBridge.Tracing.csproj" />
+    <ProjectReference Include="..\Neon.FinanceBridge.Domain\Neon.FinanceBridge.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
+      <HintPath>C:\Users\waqas.idrees\.nuget\packages\microsoft.extensions.logging.abstractions\3.0.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
