@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using Neon.FinanceBridge.Application.CommandHandlers;
 using Neon.FinanceBridge.Data.SQL.Repositories;
 using Neon.FinanceBridge.Data.SQL.Repositories.Impl;
@@ -29,14 +28,13 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using Neon.FinanceBridge.Infrastructure.Queries.Item;
 using Neon.FinanceBridge.Application.Queries.Item;
-using Neon.FinanceBridge.Infrastructure.Queries;
-using Neon.FinanceBridge.Application.Queries;
 
 namespace Neon.FinanceBridge.API
 {
     public class Startup
     {
         private static readonly string DiagnosticSourceName = Assembly.GetEntryAssembly().GetName().Name;
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -48,6 +46,17 @@ namespace Neon.FinanceBridge.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins("http://localhost:8080").AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
+
             services.AddAutoMapper(typeof(CommandToModelMappingProfile));
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerSetup();
@@ -88,6 +97,7 @@ namespace Neon.FinanceBridge.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseAuthorization();
 
@@ -96,7 +106,6 @@ namespace Neon.FinanceBridge.API
                 endpoints.MapControllers();
             });
 
-            
         }
     }
 

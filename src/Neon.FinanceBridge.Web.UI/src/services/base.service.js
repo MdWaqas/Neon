@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-const baseURL = "https://localhost:44317/api/v1";
+const baseURL = "https://localhost:44317/api/";
 
 const httpHandler = Axios.create({
     baseURL
@@ -24,3 +24,5 @@ httpHandler.interceptors.response.use(undefined, async function(error){
     }
     return Promise.reject(error);
 });
+
+export default httpHandler;
