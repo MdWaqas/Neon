@@ -26,8 +26,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\libs\Neon.FinanceBridge.Common\Neon.FinanceBridge.Common.csproj" />
-    <ProjectReference Include="..\..\Neon.FinanceBridge.Infrastructure.Identity\Neon.FinanceBridge.Infrastructure.Identity.csproj" />
     <ProjectReference Include="..\Neon.FinanceBridge.Application\Neon.FinanceBridge.Application.csproj" />
+    <ProjectReference Include="..\Neon.FinanceBridge.Infrastructure.Identity\Neon.FinanceBridge.Infrastructure.Identity.csproj" />
     <ProjectReference Include="..\Neon.FinanceBridge.Infrastructure\Neon.FinanceBridge.Infrastructure.csproj" />
   </ItemGroup>
 
