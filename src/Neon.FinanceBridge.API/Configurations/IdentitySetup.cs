@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
-using Neon.FinanceBridge.Infrastructure;
 using Neon.FinanceBridge.Infrastructure.Configurations;
 using Neon.FinanceBridge.Infrastructure.Identity;
 using Neon.FinanceBridge.Infrastructure.Identity.Authorization;
