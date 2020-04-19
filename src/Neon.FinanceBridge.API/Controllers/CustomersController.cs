@@ -2,22 +2,19 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Neon.FinanceBridge.Application.Commands.Customer;
 using Neon.FinanceBridge.Domain.Models;
-using Neon.FinanceBridge.Infrastructure.Configurations;
 
 namespace Neon.FinanceBridge.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerController : ApiController
+    public class CustomersController : ApiController
     {
-        
-        public CustomerController(IMediator mediator) : base(mediator)
-        {
 
+        public CustomersController(IMediator mediator) : base(mediator)
+        {
         }
 
         [HttpGet]
