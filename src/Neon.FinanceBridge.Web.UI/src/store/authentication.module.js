@@ -1,5 +1,7 @@
-import { userService } from '../services';
-import  router  from "../router";
+import { ServiceFactory } from "../services/service.factory";
+import router from "../router";
+
+const authService = ServiceFactory.get("auth");
 
 const user = JSON.parse(localStorage.getItem('user'));
 const initialState = user
@@ -10,23 +12,19 @@ export const authentication = {
     namespaced: true,
     state: initialState,
     actions: {
-        login({ dispatch, commit }, { username, password }) {
-            commit('loginRequest', { username });
-
-            userService.login(username, password)
-                .then(
-                    user => {
-                        commit('loginSuccess', user);
-                        router.push('/');
-                    },
-                    error => {
-                        commit('loginFailure', error);
-                        dispatch('alert/error', error, { root: true });
-                    }
-                );
+        async login({ dispatch, commit }, { email, password }) {
+            const isLoginSuccessfull = await authService.Login(email, password);
+            if (isLoginSuccessfull) {
+                commit('loginRequest', { email });
+                router.push('/');
+            }
+            else {
+                commit('loginFailure', error);
+                dispatch('alert/error', error, { root: true });
+            }
         },
-        logout({ commit }) {
-            userService.logout();
+        async logout({ commit }) {
+            await authService.Logout();
             commit('logout');
         }
     },

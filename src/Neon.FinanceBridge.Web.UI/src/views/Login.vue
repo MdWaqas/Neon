@@ -1,9 +1,5 @@
 <template>
   <div>
-    <div class="alert alert-info">
-      Username: test
-      <br />Password: test
-    </div>
     <h2>Login</h2>
     <form @submit.prevent="handleSubmit">
       <div class="form-group">
@@ -15,7 +11,7 @@
           class="form-control"
           :class="{ 'is-invalid': submitted && !username }"
         />
-        <div v-show="submitted && !username" class="invalid-feedback">Username is required</div>
+        <div v-show="submitted && !username" class="invalid-feedback">Username or Email is required</div>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
