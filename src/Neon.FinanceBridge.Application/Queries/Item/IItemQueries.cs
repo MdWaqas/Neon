@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Neon.FinanceBridge.Application.Queries.Item
 {
     public interface IItemQueries
     {
-        IEnumerable<ItemDTO> GetAllI();
-       ItemDTO GetById(int id);
-
+        IEnumerable<ItemViewModel> Get();
+        ItemViewModel Get(int id);
     }
 }

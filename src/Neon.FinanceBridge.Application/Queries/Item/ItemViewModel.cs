@@ -1,6 +1,6 @@
 ﻿namespace Neon.FinanceBridge.Application.Queries.Item
 {
-    public class ItemDTO
+    public class ItemViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

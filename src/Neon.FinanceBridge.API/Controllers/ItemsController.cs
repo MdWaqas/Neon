@@ -20,15 +20,15 @@ namespace Neon.FinanceBridge.API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<ItemDTO> Get()
+        public IEnumerable<ItemViewModel> Get()
         {
-            return itemQueries.GetAllI();
+            return itemQueries.Get();
         }
 
         [HttpGet("{id}")]
-        public ItemDTO Get(int id)
+        public ItemViewModel Get(int id)
         {
-            return itemQueries.GetById(id);
+            return itemQueries.Get(id);
 
         }
 

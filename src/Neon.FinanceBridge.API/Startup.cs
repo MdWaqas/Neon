@@ -68,7 +68,6 @@ namespace Neon.FinanceBridge.API
             services.AddScoped<ICrudRepository, CrudRepository<FinanceBridgeDbContext>>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IItemQueries, ItemQueries>();
-            services.AddScoped<IBaseQuery, BaseQuery>();
 
         }
 

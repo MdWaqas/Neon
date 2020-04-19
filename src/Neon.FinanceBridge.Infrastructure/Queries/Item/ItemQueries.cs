@@ -1,35 +1,23 @@
-﻿using Dapper;
-using Microsoft.Extensions.Options;
-using Neon.FinanceBridge.Application.Queries;
-using Neon.FinanceBridge.Application.Queries.Item;
-using Neon.FinanceBridge.Infrastructure.Configurations;
-using System;
+﻿using Neon.FinanceBridge.Application.Queries.Item;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
+using Dapper;
 
 namespace Neon.FinanceBridge.Infrastructure.Queries.Item
 {
-    public class ItemQueries : IItemQueries
+    public class ItemQueries : BaseQuery, IItemQueries
     {
-        private readonly IBaseQuery query;
-
-        public ItemQueries(IBaseQuery query)
+        public ItemQueries(IDbConnection dbConnection) : base(dbConnection)
         {
-            this.query = query;
         }
-        public IEnumerable<ItemDTO> GetAllI()
+        public IEnumerable<ItemViewModel> Get()
         {
-
-          return query.GetAll<ItemDTO>("SELECT Id,Name,Quantity,MinimumQuantity FROM dbo.Items");
-
+            return Connection.Query<ItemViewModel>("SELECT Id,Name,Quantity,MinimumQuantity FROM dbo.Items");
         }
 
-        public ItemDTO GetById(int id)
+        public ItemViewModel Get(int id)
         {
-            return query.GetById<ItemDTO>($"SELECT Id,Name,Quantity,MinimumQuantity FROM dbo.Items WHERE Id={id}");
-
+            return Connection.QuerySingle<ItemViewModel>($"SELECT Id,Name,Quantity,MinimumQuantity FROM dbo.Items WHERE Id={id}");
         }
     }
 }
