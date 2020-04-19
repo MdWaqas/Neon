@@ -1,54 +1,23 @@
 ﻿using Dapper;
-using Microsoft.Data.SqlClient;
-using Microsoft.Extensions.Options;
 using Neon.FinanceBridge.Application.Queries;
-using Neon.FinanceBridge.Infrastructure.Configurations;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-
 namespace Neon.FinanceBridge.Infrastructure.Queries
 {
-    public class BaseQuery : IBaseQuery
+    public class BaseQuery: IBaseQuery
     {
-        private readonly IDbConnection dbConnection;
+        private readonly IDbConnection  connection;
         public BaseQuery(IDbConnection dbConnection)
         {
-            this.dbConnection = dbConnection;
+            this.connection = dbConnection;
         }
-
-        public T GetById<T>(string sql, object parameters = null)
+        public T GetById<T>(string sql, Dictionary<string,object> parameters = null)
         {
-
-            return dbConnection.QueryFirstOrDefault<T>(sql, parameters);
+                return connection.QueryFirstOrDefault<T>(sql, parameters);
         }
-        public IEnumerable<T> GetAll<T>(string tableName, object parameters = null)
+        public IEnumerable<T> GetAll<T>(string sql, Dictionary<string, object> parameters = null)
         {
-            return dbConnection.Query<T>(tableName, parameters);
+                return connection.Query<T>(sql, parameters);
         }
-        //public T GetById<T>(string sql, object parameters = null)
-        //{
-        //    using (var connection = CreateConnection())
-        //    {
-        //        return connection.QueryFirstOrDefault<T>(sql, parameters);
-        //    }
-        //}
-
-        //public IEnumerable<T> GetAll<T>(string sql, object parameters = null)
-        //{
-        //    using (var connection = CreateConnection())
-        //    {
-        //        return connection.Query<T>(sql, parameters);
-        //    }
-        //}
-
-
-        //private IDbConnection CreateConnection()
-        //{
-        //    var connection = new SqlConnection(connectionString);
-        //    return connection;
-        //}
     }
 }

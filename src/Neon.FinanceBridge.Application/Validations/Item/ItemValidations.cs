@@ -11,7 +11,7 @@ namespace Neon.FinanceBridge.Application.Validations.Item
         protected void ValidateName()
         {
             RuleFor(t => t.Name).NotEmpty().WithMessage("Please ensure you have entered the item name")
-                .Length(2, 15).WithMessage("The name must have between 2 and 100 charactors");
+                .Length(2, 15).WithMessage("The name must have between 2 and 15 charactors");
         }
         protected void ValidateQuantity()
         {
