@@ -11,9 +11,9 @@ namespace Neon.FinanceBridge.API.Configurations
     {
         private readonly string connectionString;
 
-        public SqlServerHealthCheck(IConfiguration Configuration)
+        public SqlServerHealthCheck(IConfiguration configuration)
         {
-            connectionString = Configuration.GetConnectionString("DefaultConnection");
+            connectionString = configuration.GetConnectionString("DefaultConnection");
         }
 
         public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
