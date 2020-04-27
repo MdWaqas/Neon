@@ -1,10 +1,10 @@
-import BaseService from "./base.service"
-import VueCookie from "vue-cookie"
-import { authEndPoint } from "./api.endpoints"
+import BaseService from "./base.service";
+import VueCookie from "vue-cookie";
+import { authEndPoint } from "./api.endpoints";
 
 export default {
-    async Login(email, password) {
-        const accessToken = await BaseService.post(`${authEndPoint}/authenticate`, JSON.stringify({ email, password }));
+    async Login(payload) {
+        const accessToken = await BaseService.post(`${authEndPoint}/authenticate`, payload);
         return this.SetAuthHeaders(accessToken);
     },
 

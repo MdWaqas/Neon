@@ -35,7 +35,7 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Neon.Database", "data\Neon.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.Web.UI", "src\Neon.FinanceBridge.Web.UI\Neon.FinanceBridge.Web.UI.csproj", "{1AD576C7-985D-4396-AD24-7CCFBE93A5CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neon.FinanceBridge.Infrastructure.Identity", "Neon.FinanceBridge.Infrastructure.Identity\Neon.FinanceBridge.Infrastructure.Identity.csproj", "{8C200CD6-9336-4AC9-9BED-25050AB16F96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Neon.FinanceBridge.Infrastructure.Identity", "src\Neon.FinanceBridge.Infrastructure.Identity\Neon.FinanceBridge.Infrastructure.Identity.csproj", "{30F80860-AF19-470B-BDBF-3C615FDBBE48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,10 +93,10 @@ Global
 		{1AD576C7-985D-4396-AD24-7CCFBE93A5CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AD576C7-985D-4396-AD24-7CCFBE93A5CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AD576C7-985D-4396-AD24-7CCFBE93A5CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C200CD6-9336-4AC9-9BED-25050AB16F96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C200CD6-9336-4AC9-9BED-25050AB16F96}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C200CD6-9336-4AC9-9BED-25050AB16F96}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C200CD6-9336-4AC9-9BED-25050AB16F96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30F80860-AF19-470B-BDBF-3C615FDBBE48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30F80860-AF19-470B-BDBF-3C615FDBBE48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30F80860-AF19-470B-BDBF-3C615FDBBE48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30F80860-AF19-470B-BDBF-3C615FDBBE48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,7 +114,7 @@ Global
 		{CB4AAF43-8ED9-48F2-AB79-83DB585D05AF} = {C228E50E-E56E-4AD4-835C-90B02881ACCF}
 		{3FB6D134-0141-4942-8B1F-66B5F7C4A2C1} = {220D4DF7-30D8-4244-B6E7-7900259F45E3}
 		{1AD576C7-985D-4396-AD24-7CCFBE93A5CA} = {266B10A3-0014-4EE1-82DF-C1543C7477DB}
-		{8C200CD6-9336-4AC9-9BED-25050AB16F96} = {266B10A3-0014-4EE1-82DF-C1543C7477DB}
+		{30F80860-AF19-470B-BDBF-3C615FDBBE48} = {266B10A3-0014-4EE1-82DF-C1543C7477DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {055F697E-D71B-4420-80D0-DFBC7F08DCBE}

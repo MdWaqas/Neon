@@ -9,14 +9,17 @@
     <PackageReference Include="MediatR" Version="8.0.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Cors" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="3.1.3" />
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="3.1.3" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.3" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
@@ -26,8 +29,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\libs\Neon.FinanceBridge.Common\Neon.FinanceBridge.Common.csproj" />
-    <ProjectReference Include="..\..\Neon.FinanceBridge.Infrastructure.Identity\Neon.FinanceBridge.Infrastructure.Identity.csproj" />
     <ProjectReference Include="..\Neon.FinanceBridge.Application\Neon.FinanceBridge.Application.csproj" />
+    <ProjectReference Include="..\Neon.FinanceBridge.Infrastructure.Identity\Neon.FinanceBridge.Infrastructure.Identity.csproj" />
     <ProjectReference Include="..\Neon.FinanceBridge.Infrastructure\Neon.FinanceBridge.Infrastructure.csproj" />
   </ItemGroup>
 

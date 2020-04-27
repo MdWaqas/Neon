@@ -5,7 +5,6 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Neon.FinanceBridge.Application.Commands.Item;
 using Neon.FinanceBridge.Application.Queries.Item;
-using Neon.FinanceBridge.Domain.Models;
 
 namespace Neon.FinanceBridge.API.Controllers
 {

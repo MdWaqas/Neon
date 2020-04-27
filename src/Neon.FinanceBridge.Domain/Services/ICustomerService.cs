@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Neon.FinanceBridge.Domain.Models;
 
 namespace Neon.FinanceBridge.Domain.Services

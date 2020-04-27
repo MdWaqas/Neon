@@ -351,3 +351,4 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 /.idea
+/src/Neon.FinanceBridge.API/appsettings.DMT-JT13.json

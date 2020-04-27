@@ -3,13 +3,17 @@ import Vuex from 'vuex';
 
 import { alert } from './alert.module';
 import { authentication } from './authentication.module';
-import { users } from './users.module';
+import { appUser } from "./appusers.module";
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store({
+const store = new Vuex.Store({
+    strict: true,
     modules: {
         alert,
-        authentication
+        authentication,
+        appUser
     }
 });
+
+export default store;

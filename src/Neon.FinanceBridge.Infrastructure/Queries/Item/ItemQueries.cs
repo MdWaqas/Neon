@@ -12,12 +12,12 @@ namespace Neon.FinanceBridge.Infrastructure.Queries.Item
         }
         public IEnumerable<ItemViewModel> Get()
         {
-            return Connection.Query<ItemViewModel>("SELECT Id,Name,Quantity,MinimumQuantity FROM dbo.Items");
+            return Connection.Query<ItemViewModel>("SELECT Id,Name,Quantity,AlertQuantity FROM dbo.Items");
         }
 
         public ItemViewModel Get(int id)
         {
-            return Connection.QuerySingle<ItemViewModel>($"SELECT Id,Name,Quantity,MinimumQuantity FROM dbo.Items WHERE Id={id}");
+            return Connection.QuerySingle<ItemViewModel>($"SELECT Id,Name,Quantity,AlertQuantity FROM dbo.Items WHERE Id={id}");
         }
     }
 }
