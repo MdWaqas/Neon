@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Neon.FinanceBridge.Application.Commands.Item
+﻿namespace Neon.FinanceBridge.Application.Commands.Item
 {
    public class ItemCommand
     {

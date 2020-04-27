@@ -78,7 +78,8 @@ namespace Neon.FinanceBridge.API
             services.AddScoped<ICrudRepository, CrudRepository<FinanceBridgeDbContext>>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IItemQueries, ItemQueries>();
-
+            services.AddHealthChecks()
+                .AddCheck<SqlServerHealthCheck>("sql");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -106,7 +107,10 @@ namespace Neon.FinanceBridge.API
             {
                 endpoints.MapControllers();
             });
-
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHealthChecks("/health");
+            });
         }
     }
 

@@ -1,14 +1,9 @@
-﻿using System.Net;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Neon.FinanceBridge.Application.CommandHandlers;
-using Neon.FinanceBridge.Application.Commands;
 using Neon.FinanceBridge.Application.Commands.User;
-using Neon.FinanceBridge.Common;
 
 namespace Neon.FinanceBridge.API.Controllers
 {

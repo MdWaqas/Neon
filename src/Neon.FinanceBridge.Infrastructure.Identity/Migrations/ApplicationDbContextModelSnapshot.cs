@@ -3,8 +3,6 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Neon.FinanceBridge.Infrastructure.Identity;
 
 namespace Neon.FinanceBridge.Infrastructure.Identity.Migrations
 {
