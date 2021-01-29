@@ -71,7 +71,3 @@ To know more about how to set up your environment visit the [Microsoft .NET Down
 The Neon is a chemical element with the symbol Ne and atomic number 10 in the periodic table. Neon is a colorless and odorless. [Wikipedia](https://en.wikipedia.org/wiki/Neon)
 
 Neon is a powerful colling refrigerator as well. We want to build a powerful and generic enough Financial Suite which can fit into any small business. 
-
-## We are Online:
-See the project running on <a href="https://neon.efinancesuite.com/" target="_blank">Neon</a>
-
