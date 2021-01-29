@@ -67,7 +67,7 @@ To know more about how to set up your environment visit the [Microsoft .NET Down
 - Don't add extra commits
 - Unit Tests coverage should not be less than 60%
 
-## Why Neon?
+## Why CA?
 The Neon is a chemical element with the symbol Ne and atomic number 10 in the periodic table. Neon is a colorless and odorless. [Wikipedia](https://en.wikipedia.org/wiki/Neon)
 
 Neon is a powerful colling refrigerator as well. We want to build a powerful and generic enough Financial Suite which can fit into any small business. 
