@@ -68,6 +68,6 @@ To know more about how to set up your environment visit the [Microsoft .NET Down
 - Unit Tests coverage should not be less than 60%
 
 ## Why CA?
-The Neon is a chemical element with the symbol Ne and atomic number 10 in the periodic table. Neon is a colorless and odorless. [Wikipedia](https://en.wikipedia.org/wiki/Neon)
+The CA mean Clean Architecture. It is inspired by the following lecture at youtube 
+https://youtu.be/dK4Yb6-LxAk
 
-Neon is a powerful colling refrigerator as well. We want to build a powerful and generic enough Financial Suite which can fit into any small business. 
