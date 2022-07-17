@@ -12,5 +12,6 @@ namespace Neon.FinanceBridge.Infrastructure
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Item> Items { get; set; }
+        public virtual DbSet<Store> Stores { get; set; }
     }
 }

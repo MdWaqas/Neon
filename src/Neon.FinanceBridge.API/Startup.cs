@@ -28,6 +28,10 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using Neon.FinanceBridge.Infrastructure.Queries.Item;
 using Neon.FinanceBridge.Application.Queries.Item;
+using Neon.FinanceBridge.Application.Queries.Store;
+using Neon.FinanceBridge.Infrastructure.Queries.Store;
+using Neon.FinanceBridge.Application.Commands.Store;
+using Neon.FinanceBridge.Application.Validations.Store;
 
 namespace Neon.FinanceBridge.API
 {
@@ -68,7 +72,6 @@ namespace Neon.FinanceBridge.API
             services.AddMediatR(typeof(UpdateCustomerCommand).Assembly);
             services.AddMediatR(typeof(DeleteCustomerCommand).Assembly);
             services.AddMediatR(typeof(AuthenticateUserCommandHandler).Assembly);
-            
             services.AddDbContext<FinanceBridgeDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
             services.AddTransient<IDbConnection>((sp) => new SqlConnection(Configuration["ConnectionStrings:DefaultConnection"]));
@@ -78,6 +81,7 @@ namespace Neon.FinanceBridge.API
             services.AddScoped<ICrudRepository, CrudRepository<FinanceBridgeDbContext>>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IItemQueries, ItemQueries>();
+            services.AddScoped<IStoreQueries, StoreQueries>();
             services.AddHealthChecks()
                 .AddCheck<SqlServerHealthCheck>("sql");
         }
@@ -132,6 +136,10 @@ namespace Neon.FinanceBridge.API
             services.AddSingleton<IValidator<AddItemCommand>, AddItemValidations>();
             services.AddSingleton<IValidator<UpdateItemCommand>, UpdateItemValidations>();
             services.AddSingleton<IValidator<DeleteItemCommand>, DeleteItemValidations>();
+
+            services.AddSingleton<IValidator<AddStoreCommand>, AddStoreValidations>();
+            services.AddSingleton<IValidator<UpdateStoreCommand>, UpdateStoreValidations>();
+            services.AddSingleton<IValidator<DeleteStoreCommand>, DeleteStoreValidations>();
 
             return services;
         }
